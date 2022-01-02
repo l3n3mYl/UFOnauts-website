@@ -1,0 +1,75 @@
+.Apie {
+  padding-top: 100px;
+
+  .authorBio {
+    h1 {
+      font-weight: bold;
+      font-size: 2em;
+      padding-bottom: 30px;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 1.8em;
+      padding-bottom: 20px;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 1.6em;
+      padding-bottom: 15px;
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 1.5em;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-mobileLandscape) {
+  .Apie {
+    padding: 100px 10%;
+  }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .authorImg {
+    margin: auto;
+    padding-bottom: 100px;
+    width: 70%;
+  }
+  .authorBio {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: $breakpoint-tabletLandscape) {
+  .Apie {
+    all: unset;
+    min-height: 100vh;
+    margin: auto;
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    gap: 20px;
+
+    .authorImg {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+  .Apie {
+    max-width: $breakpoint-full;
+
+    .authorImg {
+      width: 25vw;
+    }
+    .authorBio {
+      margin: 0;
+      padding: 0;
+      width: 30vw;
+    }
+  }
+}
