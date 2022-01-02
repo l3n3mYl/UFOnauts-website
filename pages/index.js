@@ -1,44 +1,37 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 
-export default function Index({ allPosts, preview }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+import Layout from '../components/Layout/Layout'
+import { useRouter } from 'next/router'
+import { getHomeDataQuery } from '../lib/queries'
+import Meta from '../components/Meta/Meta'
+import { getHomeData, usePreviewSubscription } from '../lib/sanity'
+
+const Index = ({ homePageData }) => {
+  const router = useRouter()
+  const { data: pageData } = usePreviewSubscription(getHomeDataQuery, {
+    initialData: homePageData,
+    enabled: router.query.preview !== null
+  })
+
+  const { home, siteSettings } = pageData
+  // const { title, subtitle, body } = home
+  const { openGraph } = siteSettings
+
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+     <Meta {...openGraph} />
+    </Layout>
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+export const getStaticProps = async () => {
+  const homePageData = await getHomeData()
+
   return {
-    props: { allPosts, preview },
-    revalidate: 1
+    props: { 
+      homePageData: homePageData
+     },
+    revalidate: 60
   }
 }
+
+export default Index
