@@ -3,13 +3,11 @@ import styles from './Layout.module.scss'
 import Navbar from '../Navbar'
 import { node } from 'prop-types'
 
-const Layout = ({ children }) => {
-
-  const navbarPlaceholder = 'Galerija'
+const Layout = ({ children, refs }) => {
 
   return (
     <div className={styles.Content}>
-      <Navbar title={navbarPlaceholder} />
+      <Navbar refs={refs} />
       {children}
     </div>
   )

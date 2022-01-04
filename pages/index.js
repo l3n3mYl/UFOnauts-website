@@ -5,6 +5,9 @@ import { getHomeDataQuery } from '../lib/queries'
 import Meta from '../components/Meta/Meta'
 import { getHomeData, usePreviewSubscription } from '../lib/sanity'
 
+import styles from './indexxx.module.scss'
+import { useRef } from 'react'
+
 const Index = ({ homePageData }) => {
   const router = useRouter()
   const { data: pageData } = usePreviewSubscription(getHomeDataQuery, {
@@ -16,9 +19,22 @@ const Index = ({ homePageData }) => {
   // const { title, subtitle, body } = home
   const { openGraph } = siteSettings
 
+  const homeRef = useRef(null)
+  const whatWeDo = useRef(null)
+  const testimonials = useRef(null)
+  const gallery = useRef(null)
+  const contact = useRef(null)
+
+  const allRefs = [homeRef, whatWeDo, testimonials, gallery, contact]
+
   return (
-    <Layout>
+    <Layout refs={allRefs}>
      <Meta {...openGraph} />
+     <div ref={homeRef} id='Home' className={styles.rectum}>asd</div>
+     <div ref={whatWeDo} id='What We Do' className={styles.anotherRectum}></div>
+     <div ref={testimonials} id='Testimonials' className={styles.thirdRectum}></div>
+     <div ref={gallery} id='Gallery' className={styles.thirdRectum}></div>
+     <div ref={contact} id='Contact' className={styles.thirdRectum}></div>
     </Layout>
   )
 }
