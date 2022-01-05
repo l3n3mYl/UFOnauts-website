@@ -20,9 +20,9 @@ export default {
       type: "string"
     },
     {
-      title: "Body",
-      name: "body",
-      type: "blockContent"
+      title: "Image",
+      name: "image",
+      type: "mainImage"
     }
   ],
   preview: {

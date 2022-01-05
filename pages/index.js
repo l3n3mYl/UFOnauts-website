@@ -7,6 +7,7 @@ import { getHomeData, usePreviewSubscription } from '../lib/sanity'
 
 import styles from './indexxx.module.scss'
 import { useRef } from 'react'
+import HomePage from '../components/HomePage'
 
 const Index = ({ homePageData }) => {
   const router = useRouter()
@@ -16,7 +17,7 @@ const Index = ({ homePageData }) => {
   })
 
   const { home, siteSettings } = pageData
-  // const { title, subtitle, body } = home
+  const { title, subtitle, body } = home
   const { openGraph } = siteSettings
 
   const homeRef = useRef(null)
@@ -30,7 +31,8 @@ const Index = ({ homePageData }) => {
   return (
     <Layout refs={allRefs}>
      <Meta {...openGraph} />
-     <div ref={homeRef} id='Home' className={styles.rectum}>asd</div>
+     <HomePage refer={homeRef} id='Home' className={styles.rectum} home={home} />
+     {/* <div ref={homeRef} id='Home' className={styles.rectum}>asd</div> */}
      <div ref={whatWeDo} id='What We Do' className={styles.anotherRectum}></div>
      <div ref={testimonials} id='Testimonials' className={styles.thirdRectum}></div>
      <div ref={gallery} id='Gallery' className={styles.thirdRectum}></div>
