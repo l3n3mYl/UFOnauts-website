@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Navbar.module.scss'
-import { string } from 'prop-types'
+import { array } from 'prop-types'
 
 const Navbar = ({ refs }) => {
   let listener = null
@@ -55,7 +55,7 @@ const Navbar = ({ refs }) => {
 }
 
 Navbar.propTypes = {
-  title: string.isRequired
+  refs: array.isRequired
 }
 
 export default Navbar
