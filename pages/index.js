@@ -19,7 +19,7 @@ const Index = ({ homePageData }) => {
   const { home, siteSettings } = pageData
   const { title, subtitle, body } = home
   const { openGraph } = siteSettings
-
+  
   const homeRef = useRef(null)
   const whatWeDo = useRef(null)
   const testimonials = useRef(null)
@@ -29,7 +29,7 @@ const Index = ({ homePageData }) => {
   const allRefs = [homeRef, whatWeDo, testimonials, gallery, contact]
 
   return (
-    <Layout refs={allRefs}>
+    <Layout refs={allRefs} title={siteSettings.openGraph.title}>
      <Meta {...openGraph} />
      <HomePage refer={homeRef} id='Home' className={styles.rectum} home={home} />
      {/* <div ref={homeRef} id='Home' className={styles.rectum}>asd</div> */}

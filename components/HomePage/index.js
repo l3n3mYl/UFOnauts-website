@@ -9,8 +9,11 @@ const HomePage = ({ home, refer, id, className }) => {
 
   return (
     <div ref={refer} id={id} className={classNames(styles.HomePage, className)}>
-        <AnyImage className={styles.responsiveImage} src={home.image} />
-      <p>{home.title}</p>
+      <AnyImage className={styles.responsiveImage} src={home.image} />
+      <div className={styles.quote}>
+        <p className={styles.title}>{home.title}</p>
+        <p className={styles.subtitle}>{home.subtitle}</p>
+      </div>
     </div>
   )
 }

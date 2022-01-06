@@ -1,4 +1,29 @@
 .HomePage {
+  display: grid;
+  place-items: center;
+
+  .quote {
+    position: absolute;
+    top: calc(20vmin + 15vh);
+  }
+
+  .title {
+    padding-bottom: 20px;
+    text-shadow: 0 1px 0px rgba($color: #fff, $alpha: 0.4);
+    font-size: calc(2vmin + 1.5em);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+  }
+
+  .subtitle {
+    text-shadow: 0 0 5px #000;
+    color: #fff;
+    font-size: calc(1vmin + 0.5em);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+  }
 
   .responsiveImage {
     overflow: hidden;
