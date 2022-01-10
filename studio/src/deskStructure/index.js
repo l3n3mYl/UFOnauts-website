@@ -52,32 +52,16 @@ S.list()
             )
             .icon(MdHome),
             S.listItem()
-                .title("Contact")
-                .child(
-                  S.editor()
-                    .id("contactPage")
-                    .schemaType("contactPage")
-                    .documentId("contactPage")
-                    .views([
-                      S.view.form().icon(FaEdit),
-                      S.view
-                        .component(() => PagePreview({ slug: '/contact' }))
-                        .icon(FaEye)
-                        .title("Preview")
-                    ])
-                )
-            .icon(FaPhone),
-            S.listItem()
-              .title("About")
+              .title("What We Do")
               .child(
                 S.editor()
-                  .id("aboutPage")
-                  .schemaType("aboutPage")
-                  .documentId("aboutPage")
+                  .id("whatWeDo")
+                  .schemaType("whatWeDo")
+                  .documentId("whatWeDo")
                   .views([
                     S.view.form().icon(FaEdit),
                     S.view
-                      .component(() => PagePreview({ slug: '/about' }))
+                      .component(() => PagePreview({ slug: '/' }))
                       .icon(FaEye)
                       .title("Preview")
                   ])
