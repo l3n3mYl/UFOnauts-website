@@ -3,13 +3,14 @@ import Layout from '../components/Layout/Layout'
 import { useRouter } from 'next/router'
 import { getHomeDataQuery } from '../lib/queries'
 import Meta from '../components/Meta/Meta'
-import { getHomeData, usePreviewSubscription } from '../lib/sanity'
+import { getHomeData, getWhatWeDoData, usePreviewSubscription } from '../lib/sanity'
 
 import styles from './indexxx.module.scss'
 import { useRef } from 'react'
 import HomePage from '../components/HomePage'
+import WhatWeDo from '../components/WhatWeDo'
 
-const Index = ({ homePageData }) => {
+const Index = ({ homePageData, whatWeDoPageData }) => {
   const router = useRouter()
   const { data: pageData } = usePreviewSubscription(getHomeDataQuery, {
     initialData: homePageData,
@@ -32,8 +33,9 @@ const Index = ({ homePageData }) => {
     <Layout refs={allRefs} title={siteSettings.openGraph.title}>
      <Meta {...openGraph} />
      <HomePage refer={homeRef} id='Home' className={styles.rectum} home={home} />
+     <WhatWeDo refer={whatWeDo} id='What We Do' whatWeDoPageData={whatWeDoPageData} />
      {/* <div ref={homeRef} id='Home' className={styles.rectum}>asd</div> */}
-     <div ref={whatWeDo} id='What We Do' className={styles.anotherRectum}></div>
+     {/* <div ref={whatWeDo} id='What We Do' className={styles.anotherRectum}></div> */}
      <div ref={testimonials} id='Testimonials' className={styles.thirdRectum}></div>
      <div ref={gallery} id='Gallery' className={styles.thirdRectum}></div>
      <div ref={contact} id='Contact' className={styles.thirdRectum}></div>
@@ -43,10 +45,12 @@ const Index = ({ homePageData }) => {
 
 export const getStaticProps = async () => {
   const homePageData = await getHomeData()
+  const whatWeDoPageData = await getWhatWeDoData()
 
   return {
     props: { 
-      homePageData: homePageData
+      homePageData: homePageData,
+      whatWeDoPageData: whatWeDoPageData
      },
     revalidate: 60
   }

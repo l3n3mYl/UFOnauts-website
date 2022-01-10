@@ -1,0 +1,86 @@
+.WhatWeDo {
+  min-height: 100vh;
+  padding-top: 100px;
+  .itemCard {
+    padding: 20px;
+
+    .image {
+      padding-bottom: 20px;
+      margin: auto;
+      width: 100px;
+    }
+
+    .info {
+      text-align: center;
+
+      .title {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        font-size: calc(2vmin + 1.5em);
+        color: $accentColor;
+        text-shadow: 0 1px 0 rgb(124, 124, 124);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-tabletSmall) {
+  .WhatWeDo {
+    .itemCard {
+      max-width: 90vw;
+      margin: auto;
+      .image {
+        max-width: 400px;
+        min-width: 150px;
+      }
+      .description {
+        width: inherit;
+      }
+      &:nth-child(odd) {
+        display: flex;
+
+        .image {
+          margin-right: 20px;
+        }
+
+        .info {
+          text-align: left;
+
+          .title {
+            margin-left: 10px;
+          }
+          .description {
+            text-align: left;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .image {
+          margin-left: 20px;
+        }
+
+        .info {
+          text-align: right;
+
+          .title {
+            margin-right: 10px;
+          }
+          .description {
+            text-align: right;
+          }
+        }
+      }
+    }
+    
+  }  
+}
+
+@media screen and (min-width: $breakpoint-tabletLandscape) {
+  .WhatWeDo .itemCard {
+    max-width: 60vw;
+  }
+}

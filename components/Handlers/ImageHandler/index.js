@@ -36,11 +36,11 @@ const Image = ({ image, ratio, alt, className, width, height, src, ...other }) =
       
     imageEl = <img src={src} alt={alt} layout='fill' className={classNames(styles.Image, className)} {...other} loading="lazy" />
   } else if (typeof image === 'string') {
-    imageEl = <StaticImage image={image} alt={alt} {...other} className={classNames(styles.Image, className)} />
+    imageEl = <StaticImage image={image} alt={alt} {...other}  />
   } else if (image.asset) {
-    imageEl = <SanityImage image={image} alt={alt} {...other} className={classNames(styles.Image, className)} />
+    imageEl = <SanityImage image={image} alt={alt} {...other}  />
   } else {
-    imageEl = <StaticImage image={image} alt={alt} {...other} className={classNames(styles.Image, className)} />
+    imageEl = <StaticImage image={image} alt={alt} {...other}  />
   }
 
   if (ratio) {
@@ -54,7 +54,7 @@ const Image = ({ image, ratio, alt, className, width, height, src, ...other }) =
     )
   }
 
-  return imageEl
+  return <div className={className}>{imageEl}</div>
 }
 
 Image.propTypes = {

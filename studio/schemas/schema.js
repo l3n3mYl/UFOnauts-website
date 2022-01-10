@@ -8,7 +8,9 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './objects/blockContent'
 import openGraph from './objects/openGraph'
 import home from './pages/home'
+import whatWeDo from './pages/whatWeDo'
 import itemGallery from './plugs/itemGallery'
+import gallery from './plugs/gallery'
 import figure from './plugs/figure'
 import grid from './plugs/grid'
 import post from './post'
@@ -30,7 +32,9 @@ export default createSchema({
     blockContent,
     openGraph,
     home,
+    whatWeDo,
     itemGallery,
+    gallery,
     figure,
     grid,
     post,
