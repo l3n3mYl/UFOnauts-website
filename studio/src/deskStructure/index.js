@@ -67,6 +67,22 @@ S.list()
                   ])
               )
             .icon(MdInfoOutline),
+            S.listItem()
+              .title("Testimonials")
+              .child(
+                S.editor()
+                  .id("testimonials")
+                  .schemaType("testimonials")
+                  .documentId("testimonials")
+                  .views([
+                    S.view.form().icon(FaEdit),
+                    S.view
+                      .component(() => PagePreview({ slug: '/' }))
+                      .icon(FaEye)
+                      .title("Preview")
+                  ])
+              )
+            .icon(GrDocumentText),
             posts,
             // offers,
           ])

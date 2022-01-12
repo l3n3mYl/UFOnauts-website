@@ -18,10 +18,6 @@ const HomePage = ({ home, refer, id, className }) => {
   )
 }
 
-// export const getStaticProps = async () => {
-//   const homePageData = await get
-// }
-
 HomePage.propTypes = {
   home: object.isRequired,
   refer: object.isRequired,
