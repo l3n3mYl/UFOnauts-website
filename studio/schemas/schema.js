@@ -9,6 +9,7 @@ import blockContent from './objects/blockContent'
 import openGraph from './objects/openGraph'
 import home from './pages/home'
 import whatWeDo from './pages/whatWeDo'
+import testimonials from './pages/testimonials'
 import itemGallery from './plugs/itemGallery'
 import gallery from './plugs/gallery'
 import figure from './plugs/figure'
@@ -33,6 +34,7 @@ export default createSchema({
     openGraph,
     home,
     whatWeDo,
+    testimonials,
     itemGallery,
     gallery,
     figure,

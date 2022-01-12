@@ -30,7 +30,9 @@
     "next-sanity-image": "^3.2.1",
     "next-seo": "^4.28.1",
     "postcss-preset-env": "^7.0.2",
+    "react-parallax": "^3.3.0",
     "sass": "^1.45.0",
+    "swiper": "^7.4.1",
     "tailwindcss": "^3.0.7"
   }
 }
