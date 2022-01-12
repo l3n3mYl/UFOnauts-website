@@ -6,23 +6,13 @@ import BlockContent from '../Handlers/BlockContentHandler'
 import AnyImage from '../Handlers/ImageHandler'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { Parallax } from 'react-parallax'
-import imageUrlBuilder from '@sanity/image-url'
+import Parallax from '../Animations/Parallax'
 
 const Testimonials = ({ pageData, id, refer, className }) => {
 
-  const imgUrlBuilder = imageUrlBuilder({
-    projectId: 'f0ov75tq',
-    dataset: 'production'
-  })
-
   return (
     <div id={id} ref={refer} >
-      <Parallax
-        bgImage={imgUrlBuilder.image(pageData.bckImage)}
-        bgImageAlt="Background Image"
-        strength={500}
-      >
+      <Parallax image={pageData.bckImage} >
         <div className={classNames(styles.Testimonials, className)}>
           <h2>{pageData.title}</h2>
           <BlockContent className={styles.subtitle} blocks={pageData.description} />
