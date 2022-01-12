@@ -1,14 +1,20 @@
 .HomePage {
   display: grid;
   place-items: center;
+  width: 100vw;
+  height: 100vh;
 
   .quote {
-    position: absolute;
-    top: calc(20vmin + 15vh);
+    width: 100vw;
+    height: 100vh;
   }
 
   .title {
-    padding-bottom: 20px;
+    top: 40vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
     text-shadow: 0 1px 0px rgba($color: #fff, $alpha: 0.4);
     font-size: calc(2vmin + 1.5em);
     font-family: 'Orbitron', sans-serif;
@@ -17,6 +23,11 @@
   }
 
   .subtitle {
+    top: 46vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
     text-shadow: 0 0 5px #000;
     color: #fff;
     font-size: calc(1vmin + 0.5em);
