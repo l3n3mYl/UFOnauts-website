@@ -3,34 +3,46 @@ import classNames from 'classnames'
 import { object, string } from 'prop-types'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import AnyImage from '../Handlers/ImageHandler'
+import SwiperCore, { Pagination } from 'swiper';
 import 'swiper/css'
+import "swiper/css/pagination"
 
 import styles from './Gallery.module.scss'
+import BlockContent from '../Handlers/BlockContentHandler'
+
+SwiperCore.use([Pagination]);
 
 const Gallery = ({ id, refer, className, pageData }) => {
   return (
     <div id={id} ref={refer} className={classNames(styles.Gallery, className)}>
       <h2>Gallery</h2>
-      <p>{pageData.subtitle}</p>
+      <p className={styles.subtitle}>{pageData.subtitle}</p>
       <Swiper
         className={styles.carousel}
         loop={true}
-          breakpoints={{
-            300: {
-              slidesPerView: 1,
-              width: 300
-            },
-            800: {
-              slidesPerView: 2
-            },
-            1218: {
-              slidesPerView: 3
-            }
+        pagination={true}
+        spaceBetween={50}
+        breakpoints={{
+          10: {
+            slidesPerView: 1
+          },
+          500: {
+            slidesPerView: 2
+          },
+          800: {
+            slidesPerView: 3
+          },
+          1200: {
+            slidesPerView: 4
+          }
         }}
       >
         {pageData.photos.map(photo => {
           return <SwiperSlide key={photo._key} className={styles.swiperSlide}>
-            <AnyImage image={photo} className={styles.photo} />
+            <AnyImage src={photo.image} className={styles.photo} />
+            <div className={styles.effect}>
+              <BlockContent className={styles.imageTxt} blocks={photo.description} />
+            </div>
           </SwiperSlide>
         })}
       </Swiper>

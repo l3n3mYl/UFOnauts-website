@@ -12,7 +12,7 @@ export default {
       name: "photos",
       title: "Photos",
       type: "array",
-      of: [{ type: "image" }]
+      of: [{ type: "imageCard" }]
     },
   ],
   preview: {
