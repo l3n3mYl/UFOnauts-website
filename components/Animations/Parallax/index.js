@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, number } from 'prop-types'
+import { object, number, array, oneOfType } from 'prop-types'
 import { Parallax as ReactParallax } from 'react-parallax'
 import imageUrlBuilder from '@sanity/image-url'
 
@@ -24,7 +24,7 @@ const Parallax = ({ image, children, strength, blur }) => {
 
 Parallax.propTypes = {
   image: object.isRequired,
-  children: object.isRequired,
+  children: oneOfType([array, object]).isRequired,
   strength: number,
   blur: number
 }

@@ -10,7 +10,9 @@ import openGraph from './objects/openGraph'
 import home from './pages/home'
 import whatWeDo from './pages/whatWeDo'
 import testimonials from './pages/testimonials'
+import galleryPage from './pages/galleryPage'
 import itemGallery from './plugs/itemGallery'
+import imageCard from './plugs/imageCard'
 import gallery from './plugs/gallery'
 import figure from './plugs/figure'
 import grid from './plugs/grid'
@@ -35,7 +37,9 @@ export default createSchema({
     home,
     whatWeDo,
     testimonials,
+    galleryPage,
     itemGallery,
+    imageCard,
     gallery,
     figure,
     grid,
