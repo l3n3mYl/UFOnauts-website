@@ -1,5 +1,5 @@
 import { FaPhone, FaEdit, FaEye, FaQuestionCircle } from 'react-icons/fa'
-import { GrDocumentText } from 'react-icons/gr'
+import { GrDocumentText, GrGallery } from 'react-icons/gr'
 import { MdSettings, MdHome, MdInfoOutline, MdBusiness } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
 
@@ -83,6 +83,22 @@ S.list()
                   ])
               )
             .icon(GrDocumentText),
+            S.listItem()
+            .title("Gallery")
+            .child(
+              S.editor()
+                .id("galleryPage")
+                .schemaType("galleryPage")
+                .documentId("galleryPage")
+                .views([
+                  S.view.form().icon(FaEdit),
+                  S.view
+                    .component(() => PagePreview({ slug: '/' }))
+                    .icon(FaEye)
+                    .title("Preview")
+                ])
+            )
+          .icon(GrGallery),
             posts,
             // offers,
           ])

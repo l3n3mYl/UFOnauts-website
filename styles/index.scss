@@ -17,6 +17,11 @@ body {
   max-width: $breakpoint-full;
   min-height: 100vh;
   overflow-x: hidden;
+
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+  }
 }
   
 ::-webkit-scrollbar {

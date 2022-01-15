@@ -1,6 +1,12 @@
 .WhatWeDo {
   min-height: 100vh;
-  padding-top: 100px;
+  padding: 100px 0;
+  .sectionName {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 100px;
+    color: $accentColor;
+  }
   .itemCard {
     padding: 20px;
 
@@ -12,6 +18,7 @@
 
     .info {
       text-align: center;
+      color: $formColor;
 
       .title {
         font-family: 'Orbitron', sans-serif;

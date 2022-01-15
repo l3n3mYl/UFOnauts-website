@@ -9,6 +9,7 @@ const WhatWeDo = ({ className, whatWeDoPageData, refer, id }) => {
   
   return (
     <div ref={refer} id={id} className={classNames(styles.WhatWeDo, className)}>
+      <h2 className={styles.sectionName}>What We Do</h2>
       {
         whatWeDoPageData.offerings.map(item => {
           return <div className={styles.itemCard} key={item._key}>
