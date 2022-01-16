@@ -26,13 +26,13 @@ const Gallery = ({ id, refer, className, pageData }) => {
           10: {
             slidesPerView: 1
           },
-          500: {
+          650: {
             slidesPerView: 2
           },
-          800: {
+          1030: {
             slidesPerView: 3
           },
-          1200: {
+          1370: {
             slidesPerView: 4
           }
         }}
