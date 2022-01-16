@@ -25,6 +25,14 @@ export default {
       },
     },
     {
+      title: "Alternative text (for screen readers)",
+      name: "alt",
+      type: "string",
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       title: "Descripion",
       name: "descripion",
       type: "string",

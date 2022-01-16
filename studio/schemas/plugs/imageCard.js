@@ -24,6 +24,14 @@ export default {
       },
     },
     {
+      title: "Alternative text for image (for screen readers)",
+      name: "alt",
+      type: "string",
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: "description",
       title: "Description",
       type: "blockContent",

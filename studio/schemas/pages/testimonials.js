@@ -19,6 +19,14 @@ export default {
       type: 'image'
     },
     {
+      title: "Alternative text for image (for screen readers)",
+      name: "alt",
+      type: "string",
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'testimonials',
       title: 'Testimonials',
       type: 'array',

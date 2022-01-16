@@ -12,7 +12,7 @@ const Testimonials = ({ pageData, id, refer, className }) => {
 
   return (
     <div id={id} ref={refer} >
-      <Parallax image={pageData.bckImage} >
+      <Parallax image={pageData.bckImage} alt={pageData.alt} >
         <div className={classNames(styles.Testimonials, className)}>
           <h2>{pageData.title}</h2>
           {pageData.description && <BlockContent className={styles.subtitle} blocks={pageData.description} />}
@@ -37,7 +37,7 @@ const Testimonials = ({ pageData, id, refer, className }) => {
           >
             {pageData.testimonials.map(item => {
               return <SwiperSlide key={item._key} className={styles.card}>
-                <AnyImage className={styles.cardImage} src={item.image} />
+                <AnyImage className={styles.cardImage} alt={item.alt} src={item.image} />
                 <BlockContent className={styles.cardText} blocks={item.description} />
               </SwiperSlide>
             })}
