@@ -11,7 +11,7 @@ import Parallax from '../Animations/Parallax'
 const Testimonials = ({ pageData, id, refer, className }) => {
 
   return (
-    <div id={id} ref={refer} >
+    <div id={id} ref={refer} className={styles.Testimonials}>
       <Parallax image={pageData.bckImage} alt={pageData.alt} >
         <div className={classNames(styles.Testimonials, className)}>
           <h2>{pageData.title}</h2>
@@ -24,13 +24,13 @@ const Testimonials = ({ pageData, id, refer, className }) => {
               10: {
                 slidesPerView: 1
               },
-              500: {
+              650: {
                 slidesPerView: 2
               },
-              800: {
+              1030: {
                 slidesPerView: 3
               },
-              1200: {
+              1370: {
                 slidesPerView: 4
               }
             }}
