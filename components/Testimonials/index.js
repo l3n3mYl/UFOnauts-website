@@ -15,20 +15,23 @@ const Testimonials = ({ pageData, id, refer, className }) => {
       <Parallax image={pageData.bckImage} >
         <div className={classNames(styles.Testimonials, className)}>
           <h2>{pageData.title}</h2>
-          <BlockContent className={styles.subtitle} blocks={pageData.description} />
+          {pageData.description && <BlockContent className={styles.subtitle} blocks={pageData.description} />}
           <Swiper
             className={styles.carousel}
             loop={true}
+            spaceBetween={50}
             breakpoints={{
-              300: {
-                slidesPerView: 1,
-                width: 300
+              10: {
+                slidesPerView: 1
               },
-              800: {
+              500: {
                 slidesPerView: 2
               },
-              1218: {
+              800: {
                 slidesPerView: 3
+              },
+              1200: {
+                slidesPerView: 4
               }
             }}
           >

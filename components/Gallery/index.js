@@ -41,7 +41,7 @@ const Gallery = ({ id, refer, className, pageData }) => {
           return <SwiperSlide key={photo._key} className={styles.swiperSlide}>
             <AnyImage src={photo.image} className={styles.photo} />
             <div className={styles.effect}>
-              <BlockContent className={styles.imageTxt} blocks={photo.description} />
+              {photo.description && <BlockContent className={styles.imageTxt} blocks={photo.description} />} 
             </div>
           </SwiperSlide>
         })}
