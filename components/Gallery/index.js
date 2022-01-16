@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { object, string } from 'prop-types'
+import { object, string, array } from 'prop-types'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import AnyImage from '../Handlers/ImageHandler'
 import SwiperCore, { Pagination } from 'swiper';
@@ -12,11 +12,11 @@ import BlockContent from '../Handlers/BlockContentHandler'
 
 SwiperCore.use([Pagination]);
 
-const Gallery = ({ id, refer, className, pageData }) => {
+const Gallery = ({ id, refer, className, subtitle, photos }) => {
   return (
     <div id={id} ref={refer} className={classNames(styles.Gallery, className)}>
       <h2>Gallery</h2>
-      <p className={styles.subtitle}>{pageData.subtitle}</p>
+      <p className={styles.subtitle}>{subtitle}</p>
       <Swiper
         className={styles.carousel}
         loop={true}
@@ -37,7 +37,7 @@ const Gallery = ({ id, refer, className, pageData }) => {
           }
         }}
       >
-        {pageData.photos.map(photo => {
+        {photos.map(photo => {
           return <SwiperSlide key={photo._key} className={styles.swiperSlide}>
             <AnyImage src={photo.image} alt={photo.alt} className={styles.photo} />
             <div className={styles.effect}>
@@ -51,9 +51,10 @@ const Gallery = ({ id, refer, className, pageData }) => {
 }
 
 Gallery.propTypes = {
-  pageData: object.isRequired,
+  photos: array.isRequired,
   refer: object.isRequired,
   id: string.isRequired,
+  subtitle: string,
   className: string
 }
 

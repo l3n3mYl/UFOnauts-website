@@ -17,6 +17,7 @@ import WhatWeDo from '../components/WhatWeDo'
 import Testimonials from '../components/Testimonials'
 import Gallery from '../components/Gallery'
 import Contact from '../components/Contact'
+import Wrapper from '../components/WideScreenWrapper'
 
 const Index = ({ homePageData, whatWeDoPageData, testimonialsPageData, galleryPageData, contactPageData }) => {
 
@@ -38,14 +39,43 @@ const Index = ({ homePageData, whatWeDoPageData, testimonialsPageData, galleryPa
   const allRefs = [homeRef, whatWeDo, testimonials, gallery, contact]
 
   return (
-    <Layout refs={allRefs} title={siteSettings.openGraph.title}>
-     <Meta {...openGraph} />
-     <HomePage refer={homeRef} id='Home' pageData={home} />
-     <WhatWeDo refer={whatWeDo} id='What We Do' pageData={whatWeDoPageData} />
-     <Testimonials refer={testimonials} id='Testimonials' pageData={testimonialsPageData} />
-     <Gallery refer={gallery} id='Gallery' pageData={galleryPageData} />
-     <Contact refer={contact} id='Contact' pageData={contactPageData} />
-    </Layout>
+    <Wrapper>
+      <Layout refs={allRefs} title={siteSettings.openGraph.title}>
+      <Meta {...openGraph} />
+      <HomePage refer={homeRef} id='Home' image={home.image} title={home.title} subtitle={home.subtitle} />
+      <WhatWeDo 
+      refer={whatWeDo} 
+      id='What We Do' 
+      title={whatWeDoPageData.title}
+      description={whatWeDoPageData.description}
+      offerings={whatWeDoPageData.offerings}
+      />
+      <Testimonials
+        refer={testimonials}
+        id='Testimonials'
+        bckImage={testimonialsPageData.bckImage}
+        alt={testimonialsPageData.alt}
+        title={testimonialsPageData.title}
+        description={testimonialsPageData.description}
+        testimonials={testimonialsPageData.testimonials}
+      />
+      <Gallery
+      refer={gallery}
+      id='Gallery'
+      subtitle={galleryPageData.subtitle}
+      photos={galleryPageData.photos}
+      />
+      <Contact
+      refer={contact}
+      id='Contact'
+      mainImage={contactPageData.mainImage}
+      subtitle={contactPageData.subtitle}
+      phone={contactPageData.phone}
+      facebook={contactPageData.facebook}
+      instagram={contactPageData.instagram}
+      />
+      </Layout>
+    </Wrapper>
   )
 }
 

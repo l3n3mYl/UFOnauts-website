@@ -1,6 +1,5 @@
 .WhatWeDo {
-  min-height: 100vh;
-  padding: 100px 0;
+  padding: 50px 0;
 
   .description {
     color: $formColor;
@@ -13,7 +12,7 @@
   .sectionName {
     text-align: center;
     font-weight: bold;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     color: $accentColor;
   }
   .itemCard {
@@ -30,7 +29,7 @@
       color: $formColor;
 
       .title {
-        font-family: 'Orbitron', sans-serif;
+        font-family: $fontHeading;
         font-weight: bold;
         font-size: calc(2vmin + 1.5em);
         color: $accentColor;
@@ -46,15 +45,14 @@
       max-width: 90vw;
       margin: auto;
       .image {
-        max-width: 400px;
-        min-width: 150px;
+        max-width: 200px;
       }
       .description {
         width: inherit;
       }
       &:nth-child(odd) {
         display: flex;
-
+        
         .image {
           margin-right: 20px;
         }
@@ -97,6 +95,23 @@
 
 @media screen and (min-width: $breakpoint-tabletLandscape) {
   .WhatWeDo .itemCard {
-    max-width: 60vw;
+    max-width: 50vw;
+  }
+}
+
+@media screen and (min-width: $breakpoint-wide) {
+  .WhatWeDo {
+    height: 64em;
+
+    .itemCard {
+      max-width: 700px;
+      .image {
+        height: 200px;
+      }
+
+      .title {
+        font-size: 2em !important;
+      }
+    }
   }
 }
