@@ -1,4 +1,3 @@
-
 import Layout from '../components/Layout/Layout'
 import { useRouter } from 'next/router'
 import { getHomeDataQuery } from '../lib/queries'
@@ -12,16 +11,12 @@ import {
   getContactPageData
  } from '../lib/sanity'
 
-import styles from './indexxx.module.scss'
 import { useRef } from 'react'
 import HomePage from '../components/HomePage'
 import WhatWeDo from '../components/WhatWeDo'
 import Testimonials from '../components/Testimonials'
 import Gallery from '../components/Gallery'
 import Contact from '../components/Contact'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const Index = ({ homePageData, whatWeDoPageData, testimonialsPageData, galleryPageData, contactPageData }) => {
 
@@ -32,7 +27,6 @@ const Index = ({ homePageData, whatWeDoPageData, testimonialsPageData, galleryPa
   })
 
   const { home, siteSettings } = pageData
-  const { title, subtitle, body } = home
   const { openGraph } = siteSettings
   
   const homeRef = useRef(null)
@@ -46,17 +40,11 @@ const Index = ({ homePageData, whatWeDoPageData, testimonialsPageData, galleryPa
   return (
     <Layout refs={allRefs} title={siteSettings.openGraph.title}>
      <Meta {...openGraph} />
-     <HomePage refer={homeRef} id='Home' className={styles.rectum} home={home} />
-     <WhatWeDo refer={whatWeDo} id='What We Do' whatWeDoPageData={whatWeDoPageData} />
+     <HomePage refer={homeRef} id='Home' pageData={home} />
+     <WhatWeDo refer={whatWeDo} id='What We Do' pageData={whatWeDoPageData} />
      <Testimonials refer={testimonials} id='Testimonials' pageData={testimonialsPageData} />
      <Gallery refer={gallery} id='Gallery' pageData={galleryPageData} />
      <Contact refer={contact} id='Contact' pageData={contactPageData} />
-
-     {/* <div ref={homeRef} id='Home' className={styles.rectum}>asd</div> */}
-     {/* <div ref={whatWeDo} id='What We Do' className={styles.anotherRectum}></div> */}
-     {/* <div ref={testimonials} id='Testimonials' className={styles.thirdRectum}></div> */}
-     {/* <div ref={gallery} id='Gallery' className={styles.thirdRectum}></div> */}
-     {/* <div ref={contact} id='Contact' className={styles.thirdRectum}></div> */}
     </Layout>
   )
 }

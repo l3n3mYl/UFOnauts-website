@@ -1,11 +1,9 @@
-import { FaPhone, FaEdit, FaEye, FaQuestionCircle } from 'react-icons/fa'
+import { FaEdit, FaEye } from 'react-icons/fa'
 import { GrDocumentText, GrGallery } from 'react-icons/gr'
 import { MdSettings, MdHome, MdInfoOutline, MdBusiness } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
 
-import posts from './posts'
 import PagePreview from '../components/previews/pagePreview/PagePreview'
-import offers from './offers'
 
 export default () =>
 S.list()
@@ -114,9 +112,7 @@ S.list()
                     .title("Preview")
                 ])
             )
-          .icon(GrGallery),
-            posts,
-            // offers,
+          .icon(GrGallery)
           ])
       )
     ])

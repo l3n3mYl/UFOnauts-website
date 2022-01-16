@@ -5,14 +5,14 @@ import classNames from 'classnames'
 import BlockContent from '../Handlers/BlockContentHandler'
 import { string, object } from 'prop-types'
 
-const WhatWeDo = ({ className, whatWeDoPageData, refer, id }) => {
-  console.log(whatWeDoPageData)
+const WhatWeDo = ({ className, pageData, refer, id }) => {
+  
   return (
     <div ref={refer} id={id} className={classNames(styles.WhatWeDo, className)}>
-      <h2 className={styles.sectionName}>{whatWeDoPageData.title}</h2>
-      <BlockContent className={styles.description} blocks={whatWeDoPageData.description} />
+      <h2 className={styles.sectionName}>{pageData.title}</h2>
+      {pageData.description && <BlockContent className={styles.description} blocks={pageData.description} />}
       {
-        whatWeDoPageData.offerings.map(item => {
+        pageData.offerings.map(item => {
           return <div className={styles.itemCard} key={item._key}>
             <AnyImage className={styles.image} image={item.image} />
             <div className={styles.info}>
@@ -28,7 +28,7 @@ const WhatWeDo = ({ className, whatWeDoPageData, refer, id }) => {
 
 WhatWeDo.propTypes = {
   refer: object.isRequired,
-  whatWeDoPageData: object.isRequired,
+  pageData: object.isRequired,
   id: string.isRequired,
   className: string,
 }
