@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { string, object } from 'prop-types'
+import { string, object, array } from 'prop-types'
 import styles from './Testimonials.module.scss'
 import BlockContent from '../Handlers/BlockContentHandler'
 import AnyImage from '../Handlers/ImageHandler'
@@ -8,14 +8,19 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import Parallax from '../Animations/Parallax'
 
-const Testimonials = ({ pageData, id, refer, className }) => {
+const Testimonials = ({ bckImage, alt, title, description, testimonials, id, refer, className }) => {
 
   return (
     <div id={id} ref={refer} className={styles.Testimonials}>
-      <Parallax image={pageData.bckImage} alt={pageData.alt} >
-        <div className={classNames(styles.Testimonials, className)}>
-          <h2>{pageData.title}</h2>
-          {pageData.description && <BlockContent className={styles.subtitle} blocks={pageData.description} />}
+      <Parallax 
+        image={bckImage}
+        blur={3}
+        alt={alt}
+        opacity={1}
+      >
+        <div className={classNames(className, styles.backg)}>
+          <h2>{title}</h2>
+          {description && <BlockContent className={styles.subtitle} blocks={description} />}
           <Swiper
             className={styles.carousel}
             loop={true}
@@ -35,7 +40,7 @@ const Testimonials = ({ pageData, id, refer, className }) => {
               }
             }}
           >
-            {pageData.testimonials.map(item => {
+            {testimonials.map(item => {
               return <SwiperSlide key={item._key} className={styles.card}>
                 <AnyImage className={styles.cardImage} alt={item.alt} src={item.image} />
                 <BlockContent className={styles.cardText} blocks={item.description} />
@@ -50,9 +55,13 @@ const Testimonials = ({ pageData, id, refer, className }) => {
 }
 
 Testimonials.propTypes = {
-  pageData: object.isRequired,
+  bckImage: object.isRequired,
+  alt: string.isRequired,
+  title: string.isRequired,
   refer: object.isRequired,
   id: string.isRequired,
+  testimonials: array,
+  description: array,
   className: string
 }
 

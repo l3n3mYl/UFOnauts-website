@@ -4,25 +4,26 @@ import { string, object } from 'prop-types'
 import styles from './HomePage.module.scss'
 import Parallax from '../Animations/Parallax'
 
-
-const HomePage = ({ pageData, refer, id, className }) => {
-
+const HomePage = ({ image, title, subtitle, refer, id, className }) => {
   return (
     <div ref={refer} id={id} className={classNames(styles.HomePage, className)}>
       <Parallax 
-        image={pageData.image} 
+        image={image} 
         strength={250}
+        opacity={1}
       >
         <div className={styles.quote}/>
-        <p className={styles.title}>{pageData.title}</p>
-        <p className={styles.subtitle}>{pageData.subtitle}</p>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.subtitle}>{subtitle}</p>
       </Parallax>
     </div>
   )
 }
 
 HomePage.propTypes = {
-  pageData: object.isRequired,
+  image: object.isRequired,
+  title: string.isRequired,
+  subtitle: string.isRequired,
   refer: object.isRequired,
   id: string.isRequired,
   className: string

@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Navbar.module.scss'
 import { array, string } from 'prop-types'
+import debounce from '../../lib/helpers/debounce'
 
 const Navbar = ({ refs, title }) => {
   
-  let listener = null
   const [scrollState, setScrollState] = useState("top")
   const [position, setPosition] = useState('Home')
 
-  useEffect(() => {
-    listener = document.addEventListener("scroll", _ => {
-      var scrolled = document.scrollingElement.scrollTop
-      for(let i in refs) {
-        if(refs[i].current.offsetTop <= scrolled + 10) {
-          setPosition(refs[i].current.id)
-        }
+  const handleScroll = debounce(() => {
+    var scrolled = document.scrollingElement.scrollTop
+    
+    for(let i in refs) {
+      if(refs[i].current.offsetTop <= scrolled) {
+        setPosition(refs[i].current.id)
       }
-      if(scrolled >= 120) {
-        if(!scrollState !== "highlight") {
-          setScrollState("highlight")
-        }
-      } else {
-        if(scrollState !== "top") {
-          setScrollState("top")
-        }
-      }
-    })
-    return () => {
-      document.removeEventListener("scroll", listener)
     }
-  }, [scrollState])
+    if(scrolled >= 120) {
+      if(!scrollState !== "highlight") {
+        setScrollState("highlight")
+      }
+    } else {
+      if(scrollState !== "top") {
+        setScrollState("top")
+      }
+    }
+
+  }, 30)
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [handleScroll])
 
   return (
     <header className={styles.Header}>
