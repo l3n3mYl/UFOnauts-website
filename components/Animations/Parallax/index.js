@@ -3,7 +3,7 @@ import { object, number, array, oneOfType } from 'prop-types'
 import { Parallax as ReactParallax } from 'react-parallax'
 import imageUrlBuilder from '@sanity/image-url'
 
-const Parallax = ({ image, children, strength, blur }) => {
+const Parallax = ({ image, children, strength, blur, alt }) => {
 
   const imgUrlBuilder = imageUrlBuilder({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -13,7 +13,7 @@ const Parallax = ({ image, children, strength, blur }) => {
   return (
       <ReactParallax
         bgImage={imgUrlBuilder.image(image)}
-        bgImageAlt="Background Image"
+        bgImageAlt={alt}
         strength={strength ? strength : 400}
         blur={blur ? blur : 0}
       >

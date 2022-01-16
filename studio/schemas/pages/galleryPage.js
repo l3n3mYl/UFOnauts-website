@@ -13,7 +13,7 @@ export default {
       title: "Photos",
       type: "array",
       of: [{ type: "imageCard" }]
-    },
+    }
   ],
   preview: {
     prepare() {

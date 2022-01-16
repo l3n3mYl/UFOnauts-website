@@ -42,7 +42,7 @@ const Navbar = ({ refs, title }) => {
             refs.map((ref) => (
               ref.current && 
               <li key={ref.current.id} onClick={() => {ref.current.scrollIntoView()}}>
-                <a className={position === ref.current.id ? styles.highlight : ''} >{ref.current.id}</a>
+                <p className={position === ref.current.id ? styles.highlight : ''} >{ref.current.id}</p>
               </li>
             ))
           }

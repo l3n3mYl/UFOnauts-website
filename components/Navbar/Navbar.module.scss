@@ -1,7 +1,7 @@
 .menuToggle:checked ~ nav{
   transform: scale(1, 1);
 
-  a {
+  p {
       opacity: 1;
       transition: opacity 250ms ease-in-out 250ms;
   }
@@ -83,7 +83,7 @@
           margin-bottom: 1em;
           
 
-          a {
+          p {
             color: #fff;
             text-shadow: #000 0 0 10px;
             font-size: 1.2rem;
@@ -161,7 +161,7 @@
           
         li {
           padding: 0 30px;
-          a {
+          p {
             color: #fff;
             text-shadow: #000 0 0 3px;
             font-size: 1.2em;
