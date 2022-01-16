@@ -99,6 +99,22 @@ S.list()
                 ])
             )
           .icon(GrGallery),
+          S.listItem()
+            .title("Contact")
+            .child(
+              S.editor()
+                .id("contactPage")
+                .schemaType("contactPage")
+                .documentId("contactPage")
+                .views([
+                  S.view.form().icon(FaEdit),
+                  S.view
+                    .component(() => PagePreview({ slug: '/' }))
+                    .icon(FaEye)
+                    .title("Preview")
+                ])
+            )
+          .icon(GrGallery),
             posts,
             // offers,
           ])

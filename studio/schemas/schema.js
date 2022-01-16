@@ -11,6 +11,7 @@ import home from './pages/home'
 import whatWeDo from './pages/whatWeDo'
 import testimonials from './pages/testimonials'
 import galleryPage from './pages/galleryPage'
+import contact from './pages/contact'
 import itemGallery from './plugs/itemGallery'
 import imageCard from './plugs/imageCard'
 import gallery from './plugs/gallery'
@@ -38,6 +39,7 @@ export default createSchema({
     whatWeDo,
     testimonials,
     galleryPage,
+    contact,
     itemGallery,
     imageCard,
     gallery,
